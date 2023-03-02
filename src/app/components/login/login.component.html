@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <h2>Entrar</h2>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="mat-label-form">Usuário</mat-label>
+        <input matInput placeholder="Usuário" formControlName="username" />
+        <mat-icon class="icon-form-field" matSuffix>email</mat-icon>
+        <mat-error>{{ getErrorMessageUserName() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label class="mat-label-form">Senha</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          placeholder="Senha"
+          formControlName="password"
+        />
+        <mat-error>{{ getErrorMessagePassword() }}</mat-error>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon class="icon-form-field">{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="onSubmit()">
+      <mat-icon>login</mat-icon>
+      Entrar
+    </button>
+  </mat-card-actions>
+</mat-card>

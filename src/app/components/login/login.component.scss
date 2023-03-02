@@ -1,0 +1,30 @@
+mat-card {
+  max-width: 600px;
+  min-width: 300px;
+  margin: 2em auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: var(--surface);
+  box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.1);
+}
+
+//CAMPO DE TEXTO USERNAME
+// ocupar a tela e colocar segundo campo abaixo do primeiro
+mat-form-field {
+  display: block;
+}
+
+//cor texto digitado
+::ng-deep.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: var(--color-text-black);
+}
+
+//cor placeholder
+::ng-deep .mdc-text-field__input::placeholder {
+  color: var(--color-text-gray) !important;
+}
+
+//Cor cursor campo texto
+::ng-deep .mdc-text-field .mdc-text-field__input {
+    caret-color: var(--color-text-black);
+}

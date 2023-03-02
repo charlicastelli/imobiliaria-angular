@@ -1,1 +1,98 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/theming";
+
+:root {
+  height: 100%;
+  --primary: #6200ee;
+  --accent: #6200ee;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --warn: #b00020;
+  --color-text-black: #000000;
+  --color-text-gray: #a7a7a7;
+}
+
+:root .dark-theme {
+  height: 100%;
+  --primary: #1f1f1f;
+  --accent: #bb86fc;
+  --background: #121212;
+  --surface: #1f1f1f;
+  --warn: #cf6679;
+  --color-text-black: #ffffff;
+  --color-text-gray: #a7a7a7;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--background);
+}
+
+//MAT-TOOLBAR
+.mat-toolbar {
+  max-width: 100%;
+  min-width: 300px;
+  background-color: var(--primary);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-mat-toolbar {
+  background-color: var(--primary);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+//OUTROS
+h2 {
+  color: var(--color-text-black) !important;
+}
+
+//CAMPO DE TEXTO
+//Cor icone input
+.icon-form-field {
+  color: var(--color-text-gray);
+}
+
+//cor label input
+.mat-label-form {
+  color: var(--color-text-gray);
+}
+
+//BOTÕES
+//BOTÃO BACKGROUND
+.mat-mdc-raised-button.mat-unthemed {
+  --mdc-protected-button-container-color: var(--accent);
+  --mdc-protected-button-label-text-color: #fff;
+  margin: 0 15px;
+  border-radius: 10px;
+  height: 50px;
+  width: 150px;
+}
+
+.mat-mdc-raised-button.mat-unthemed:hover {
+  transform: scale(1.1);
+}
+
+
+//MAT-CARD
+mat-card {
+  padding: 20px;
+}
+
+
+//MAT-CARD-ACTIONS
+//Centralizar botões no card
+mat-card-actions {
+  justify-content: center;
+}
+
+
