@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
+## back-end Django 
+- https://github.com/charlicastelli/mysite
+
 ### Comandos utilizados
 - `ng add @angular/material` (instalar Angular Material)
 - `ng generate module components --routing` (Criar pasta components com o `module` e `routing.module`)
