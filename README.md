@@ -17,3 +17,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `ng g class shared/api/api-url` (Criar uma classe onde vou colocar a url da API)
 - `ng g service components/service/authentication/authentication` (Criar serviço de autenticação) 
 - `ng g class shared/model/user-model` (Criar uma classe usuario)
+- `ng g c components/home-page` (Criar componente home page)
+- `ng g c components/page-not-found` (Criar página 404)
+- `ng g guard shared/auth-guard/auth` (Criar um guard para as rotas)

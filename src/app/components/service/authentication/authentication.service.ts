@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
 import { ApiUrl } from 'src/app/shared/api/api-url';
 
 import { AuxiliaryService } from './../auxiliary/auxiliary-service';
@@ -11,6 +11,7 @@ import { AuxiliaryService } from './../auxiliary/auxiliary-service';
 export class AuthenticationService extends AuxiliaryService {
   private currentUserSubject!: BehaviorSubject<any>;
   public currentUser$!: Observable<any>;
+  
 
   constructor(
     public override http: HttpClient,
@@ -27,8 +28,14 @@ export class AuthenticationService extends AuxiliaryService {
     this.currentUser$ = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): any {
-    return this.currentUserSubject.value;
+  public get authenticatedUser(): any {
+    try {
+      let userData = localStorage.getItem('user');
+      return userData!;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
   }
 
   public get currentUserObject(): BehaviorSubject<any> {
@@ -36,13 +43,14 @@ export class AuthenticationService extends AuxiliaryService {
   }
 
   async login(campos: any) {
-    return await this.http
-      .post<any[]>(this.apiUrl.djangoApi + 'login/', campos)
-      .toPromise()
-      .then((user) => {
-        localStorage.setItem('usuario', JSON.stringify(user));
-        this.currentUserSubject.next(user);
-        return user;
-      });
+    const observable = this.http.post<any[]>(
+      this.apiUrl.djangoApi + 'login/',
+      campos
+    );
+    return await lastValueFrom(observable).then((user) => {
+      localStorage.setItem('user', JSON.stringify(user));
+      this.currentUserSubject.next(user);
+      return user;
+    });
   }
 }
