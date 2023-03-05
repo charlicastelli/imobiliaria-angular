@@ -1,15 +1,16 @@
 import { HttpClientModule } from '@angular/common/http';
-import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ApiUrl } from './shared/api/api-url';
+import { ComponentsModule } from './components/components.module';
 import { AuthenticationService } from './components/service/authentication/authentication.service';
+import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
+import { ApiUrl } from './shared/api/api-url';
 import { AuthGuard } from './shared/auth-guard/auth.guard';
-import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { Router } from '@angular/router';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HttpClientModule,
+    ComponentsModule
   ],
   providers: [
     ApiUrl, //inserido ApiUrl pois estava dando um erro de provedor

@@ -1,9 +1,10 @@
-import { UserModel } from './../../shared/model/user-model';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from './../service/authentication/authentication.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { UserModel } from './../../shared/model/user-model';
+import { AuthenticationService } from './../service/authentication/authentication.service';
+
 
 @Component({
   selector: 'app-login',
@@ -25,12 +26,8 @@ export class LoginComponent {
     private authenticationService: AuthenticationService,
     private router: Router,
     private route: ActivatedRoute,
-    private location: Location
   ) {
-    //Se estiver logado ao tentar acessar '/login' vai redirecionar para 'home'
-    if (this.authenticationService) {
-      this.router.navigate(['home'], { relativeTo: this.route });
-    }
+
   }
 
   ngOnInit(): void {
@@ -46,16 +43,11 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    //const currentUrl = window.location.href; //retorna todo caminho
-    const currentUrl = this.location.getState();
-    console.log(currentUrl);
-
     this.user.username = this.username;
     this.user.password = this.password;
     this.submitted = true;
     if (this.form.invalid) {
       console.log('Formulário invalido!!!');
-      // return;
     }
     this.loading = true;
 
@@ -70,12 +62,6 @@ export class LoginComponent {
       });
   }
 
-  // teste() {
-  //   if (this.authenticationService.currentUserValue) {
-  //     console.log('Você continua logado HOME');
-  //     this.router.navigate(['home'], {relativeTo: this.route});
-  //   }
-  // }
 
   //MENSAGENS ERRO CAMPOS DE TEXTO
   getErrorMessageUserName() {
