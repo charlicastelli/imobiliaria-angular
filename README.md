@@ -20,3 +20,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `ng g c components/home-page` (Criar componente home page)
 - `ng g c components/page-not-found` (Criar página 404)
 - `ng g guard shared/auth-guard/auth` (Criar um guard para as rotas)
+- `ng g service components/service/notification-message/notification-message` (Criar serviço de notificações)
+- `ng g c shared/notification` (Criar componente para exibir notificações de sucesso)
+- `ng g c shared/notification-error` (Criar componente para notificações de erros)

@@ -1,0 +1,47 @@
+
+:host {
+  bottom: 1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 30%;
+}
+
+.message {
+  background-color: var(--warn);
+  border: 1px solid var(--warn);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 1.5em;
+  
+}
+
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.message-header button {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.message p {
+  font-size: 1.2em;
+}
+
+.clear {
+  color: #ffffff;
+}
+
+.clear:hover {
+  transform: scale(1.4);
+}
+h2 {
+  color: #ffffff;
+}
+

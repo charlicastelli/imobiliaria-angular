@@ -12,6 +12,7 @@ import { AngularMaterialModule } from './shared/angular-material/angular-materia
 import { ApiUrl } from './shared/api/api-url';
 import { AuthGuard } from './shared/auth-guard/auth.guard';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,7 +21,7 @@ import { AuthGuard } from './shared/auth-guard/auth.guard';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HttpClientModule,
-    ComponentsModule
+    ComponentsModule,
   ],
   providers: [
     ApiUrl, //inserido ApiUrl pois estava dando um erro de provedor

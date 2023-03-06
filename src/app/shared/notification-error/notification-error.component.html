@@ -1,0 +1,15 @@
+<div class="message" *ngIf="notificationMessageService.message">
+    <div class="message-header">
+      <h2>{{ notificationMessageService.messageHeader }}</h2>
+      <button
+        class="clear"
+        mat-icon-button
+        aria-label="back"
+        (click)="notificationMessageService.clear()"
+      >
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+    <p>{{ notificationMessageService.message }}</p>
+  </div>
+  

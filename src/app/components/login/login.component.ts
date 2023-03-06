@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserModel } from './../../shared/model/user-model';
 import { AuthenticationService } from './../service/authentication/authentication.service';
-
+import { NotificationMessageService } from './../service/notification-message/notification-message.service';
 
 @Component({
   selector: 'app-login',
@@ -26,9 +26,8 @@ export class LoginComponent {
     private authenticationService: AuthenticationService,
     private router: Router,
     private route: ActivatedRoute,
-  ) {
-
-  }
+    private notificationMessageService: NotificationMessageService
+  ) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -48,9 +47,10 @@ export class LoginComponent {
     this.submitted = true;
     if (this.form.invalid) {
       console.log('Formulário invalido!!!');
+      this.onError();
+      this.ngOnInit();
     }
     this.loading = true;
-
     this.authenticationService
       .login(this.form.value)
       .then((data: any) => {
@@ -62,6 +62,10 @@ export class LoginComponent {
       });
   }
 
+  async onError() {
+    this.notificationMessageService.header('Falha de autenticação');
+    this.notificationMessageService.add('Nome de usuário ou senha incorretos!');
+  }
 
   //MENSAGENS ERRO CAMPOS DE TEXTO
   getErrorMessageUserName() {
