@@ -23,3 +23,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - `ng g service components/service/notification-message/notification-message` (Criar serviço de notificações)
 - `ng g c shared/notification` (Criar componente para exibir notificações de sucesso)
 - `ng g c shared/notification-error` (Criar componente para notificações de erros)
+- `ng g interceptor shared/interceptor/interceptor` (Criar interceptador para carimbar o token no HEADERS nas requisições)
+- `ng g service components/service/imoveis/imoveis` (Criar serviço imoveis)
+ 

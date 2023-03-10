@@ -38,6 +38,10 @@ export class AuthenticationService extends AuxiliaryService {
     }
   }
 
+  public get currentUserValue(): any {
+    return this.currentUserSubject.value;
+  }
+
   public get currentUserObject(): BehaviorSubject<any> {
     return this.currentUserSubject;
   }

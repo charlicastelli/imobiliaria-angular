@@ -10,7 +10,7 @@ export class AuxiliaryService {
     public entityDjango: String
   ) {}
 
-  async search(id: number) {
+  async search(id?: number) {
     if (id) {
       const observable = this.http.get<any[]>(
         this.apiUrl.djangoApi + this.entityDjango + id + '/'

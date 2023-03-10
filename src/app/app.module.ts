@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,7 +11,7 @@ import { AuthenticationService } from './components/service/authentication/authe
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 import { ApiUrl } from './shared/api/api-url';
 import { AuthGuard } from './shared/auth-guard/auth.guard';
-
+import { InterceptorInterceptor } from './shared/interceptor/interceptor.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +25,13 @@ import { AuthGuard } from './shared/auth-guard/auth.guard';
   ],
   providers: [
     ApiUrl, //inserido ApiUrl pois estava dando um erro de provedor
+    [
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: InterceptorInterceptor,
+        multi: true,
+      }, //interceptador para carimbar token
+    ],
     AuthenticationService,
     {
       provide: AuthGuard,
